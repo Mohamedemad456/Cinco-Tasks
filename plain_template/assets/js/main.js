@@ -395,3 +395,67 @@ window.ModernTemplate = {
     removeClass: removeClassFromElement,
     toggleClass: toggleClassOnElement
 };
+
+// Carousel functionality
+let currentSlideIndex = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const indicators = document.querySelectorAll('.indicator');
+
+function showSlide(index) {
+    // Hide all slides
+    slides.forEach(slide => slide.classList.remove('active'));
+    indicators.forEach(indicator => indicator.classList.remove('active'));
+    
+    // Show current slide
+    if (slides[index]) {
+        slides[index].classList.add('active');
+        indicators[index].classList.add('active');
+    }
+}
+
+function changeSlide(direction) {
+    currentSlideIndex += direction;
+    
+    // Loop around
+    if (currentSlideIndex >= slides.length) {
+        currentSlideIndex = 0;
+    } else if (currentSlideIndex < 0) {
+        currentSlideIndex = slides.length - 1;
+    }
+    
+    showSlide(currentSlideIndex);
+}
+
+function currentSlide(index) {
+    currentSlideIndex = index - 1;
+    showSlide(currentSlideIndex);
+}
+
+// Auto-advance carousel
+function autoAdvance() {
+    changeSlide(1);
+}
+
+// Start auto-advance when page loads
+let carouselInterval;
+document.addEventListener('DOMContentLoaded', function() {
+    if (slides.length > 0) {
+        carouselInterval = setInterval(autoAdvance, 5000); // Change slide every 5 seconds
+        
+        // Pause auto-advance on hover
+        const carouselContainer = document.querySelector('.carousel-container');
+        if (carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', function() {
+                clearInterval(carouselInterval);
+            });
+            
+            carouselContainer.addEventListener('mouseleave', function() {
+                carouselInterval = setInterval(autoAdvance, 5000);
+            });
+        }
+    }
+});
+
+// Make carousel functions globally available
+window.changeSlide = changeSlide;
+window.currentSlide = currentSlide;
