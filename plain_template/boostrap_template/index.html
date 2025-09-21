@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container mx-5">
+                <a class="navbar-brand ms-5 fs-2" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end"
+                    id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0 me-5">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"
+                                href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Landing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Generic</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section
+            class="hero-section d-flex align-items-center p-5 flex-column text-light justify-content-center">
+            <div class="container text-center">
+                <h1 class="display-4">Welcome to Our Website</h1>
+                <p class="lead">This is a simple hero section to showcase your
+                    content.</p>
+            </div>
+            <div class="btns px-5">
+                <button type="button"
+                    class="btn btn-light rounded-pill p-3 m-2">Get
+                    info</button>
+                <button type="button"
+                    class="btn btn-outline-light text-dark rounded-pill p-2 p-md-3 m-2">Learn
+                    More</button>
+            </div>
+        </section>
+
+        <section class="container my-5 text-center">
+            <div class="mb-5">
+                <h2>Why Choose Us?</h2>
+                <h4>Discover the features that make our template stand out from
+                    the rest</h4>
+            </div>
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-lg-4 col-sm-12 col-md-6 mb-3">
+                    <i
+                        class="fa-solid fa-rocket fa-3x text-light rounded-circle bg-color p-4"></i>
+                    <h3>Fast Performance</h3>
+                    <p>Experience lightning-fast loading times and smooth
+                        navigation.</p>
+                </div>
+                <div class="col-lg-4 col-sm-12 col-md-6 mb-3">
+                    <i
+                        class="fa-solid fa-palette fa-3x text-light rounded-circle bg-color p-4"></i>
+                    <h3>Beautiful Design</h3>
+                    <p>Enjoy a modern and visually appealing design that
+                        captivates users.</p>
+                </div>
+                <div class="col-lg-4 col-sm-12 col-md-6 mb-3">
+                    <i
+                        class="fa-solid fa-lock fa-3x text-light rounded-circle bg-color p-4"></i>
+                    <h3>Secure</h3>
+                    <p>Rest assured with our robust security features to protect
+                        your data.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="section-header text-center mb-5">
+                    <h2 class="section-title">Featured Highlights</h2>
+                    <p class="section-subtitle">Discover our amazing features
+                        and services</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div id="featuredCarousel" class="carousel slide"
+                            data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button"
+                                    data-bs-target="#featuredCarousel"
+                                    data-bs-slide-to="0" class="active"
+                                    aria-current="true"
+                                    aria-label="Slide 1"></button>
+                                <button type="button"
+                                    data-bs-target="#featuredCarousel"
+                                    data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button"
+                                    data-bs-target="#featuredCarousel"
+                                    data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="carousel-content text-center">
+                                        <img src="../images/pic01.jpg"
+                                            class="d-block w-100 rounded"
+                                            alt="Web Development"
+                                            style="max-height: 400px; object-fit: cover;">
+                                        <div
+                                            class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-3 mt-3">
+                                            <h3>Web Development Excellence</h3>
+                                            <p>Custom web applications built
+                                                with cutting-edge technologies
+                                                and best practices.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="carousel-content text-center">
+                                        <img src="../images/pic02.jpg"
+                                            class="d-block w-100 rounded"
+                                            alt="UI/UX Design"
+                                            style="max-height: 400px; object-fit: cover;">
+                                        <div
+                                            class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-3 mt-3">
+                                            <h3>Beautiful UI/UX Design</h3>
+                                            <p>Intuitive and stunning user
+                                                interfaces that provide
+                                                exceptional user experience.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="carousel-content text-center">
+                                        <img src="../images/pic03.jpg"
+                                            class="d-block w-100 rounded"
+                                            alt="Digital Innovation"
+                                            style="max-height: 400px; object-fit: cover;">
+                                        <div
+                                            class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-3 mt-3">
+                                            <h3>Digital Innovation</h3>
+                                            <p>Pioneering digital solutions that
+                                                transform businesses and drive
+                                                growth.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#featuredCarousel"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"
+                                    aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#featuredCarousel"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon"
+                                    aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Our Services</h2>
+                    <p class="section-subtitle">Explore what we can do for your
+                        business</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 mb-3">
+                        <div class="card mb-3 h-100 text-center">
+                            <img src="../images/pic08.jpg" class="card-img-top"
+                                alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to
+                                    build on the card title and make up the bulk
+                                    of the card’s content.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-image">
+                                <img src="../images/pic01.jpg"
+                                    class="card-img-top" alt="Web Development">
+                            </div>
+                            <div class="card-body text-center">
+                                <h3 class="card-title h5">
+                                    <a href="landing.html">Web Development</a>
+                                </h3>
+                                <p class="card-text">Custom web applications
+                                    built with modern technologies and best
+                                    practices for optimal performance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-image">
+                                <img src="../images/pic02.jpg"
+                                    class="card-img-top" alt="UI/UX Design">
+                            </div>
+                            <div class="card-body text-center">
+                                <h3 class="card-title h5">
+                                    <a href="landing.html">UI/UX Design</a>
+                                </h3>
+                                <p class="card-text">Beautiful and intuitive
+                                    user interfaces designed with user
+                                    experience in mind.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-3">
+                        <div class="card h-100 ">
+                            <div class="card-image">
+                                <img src="../images/pic03.jpg"
+                                    class="card-img-top"
+                                    alt="Digital Marketing">
+                            </div>
+                            <div class="card-body text-center">
+                                <h3 class="card-title h5">
+                                    <a href="landing.html">Digital Marketing</a>
+                                </h3>
+                                <p class="card-text">Strategic digital marketing
+                                    solutions to grow your online presence and
+                                    reach your target audience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

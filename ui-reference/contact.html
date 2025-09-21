@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Contact Us</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --info-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --hover-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            --input-shadow: 0 2px 10px rgba(102, 126, 234, 0.1);
+            --border-radius: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            background: var(--primary-gradient) !important;
+            box-shadow: var(--card-shadow);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: white !important;
+        }
+
+        main {
+            flex: 1;
+            width: 100%;
+            padding: 0;
+        }
+
+        .contact-page {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page-header {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, rgba(245, 247, 250, 0.1));
+            clip-path: polygon(0 0, 100% 100%, 0 100%);
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #ffffff, #f8f9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .contact-form {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            padding: 3.5rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+        }
+
+        .contact-form:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .form-control, .form-select {
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+            padding: 15px 20px;
+            transition: var(--transition);
+            font-size: 1rem;
+            background-color: #fafbfc;
+            box-shadow: var(--input-shadow);
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.15), var(--input-shadow);
+            transform: translateY(-2px);
+            background-color: white;
+        }
+
+        .form-control::placeholder {
+            color: #adb5bd;
+            font-style: italic;
+        }
+
+        .form-control:invalid {
+            border-color: #dc3545;
+        }
+
+        .form-control:valid {
+            border-color: #28a745;
+        }
+
+        .form-floating {
+            position: relative;
+        }
+
+        .form-floating > .form-control {
+            height: calc(3.5rem + 2px);
+            line-height: 1.25;
+        }
+
+        .form-floating > label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            padding: 1rem 0.75rem;
+            pointer-events: none;
+            border: 1px solid transparent;
+            transform-origin: 0 0;
+            transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-label i {
+            color: #667eea;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            border: none;
+            border-radius: 50px;
+            padding: 18px 45px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:active {
+            transform: translateY(-2px);
+        }
+
+        .contact-info-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            padding: 2rem;
+            min-height: 200px;
+            max-height: 250px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .contact-info-card:hover::before {
+            opacity: 1;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.8rem;
+            color: white;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .contact-info-card:hover .contact-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .contact-icon.primary {
+            background: var(--primary-gradient);
+        }
+
+        .contact-icon.success {
+            background: var(--success-gradient);
+        }
+
+        .contact-icon.warning {
+            background: var(--warning-gradient);
+        }
+
+        .contact-icon.secondary {
+            background: var(--secondary-gradient);
+        }
+
+        .contact-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .contact-info-card:hover .contact-title {
+            color: #667eea;
+        }
+
+        .contact-details {
+            color: #6c757d;
+            text-align: center;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .contact-details a {
+            color: #667eea;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .faq-section {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            padding: 3.5rem;
+            margin-top: 4rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faq-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--secondary-gradient);
+        }
+
+        .faq-section:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e9ecef;
+            padding: 1.5rem 0;
+            transition: var(--transition);
+            border-radius: 10px;
+            margin: 0 -1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item:hover {
+            background-color: #f8f9ff;
+            transform: translateX(10px);
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .faq-question:hover {
+            color: #667eea;
+        }
+
+        .faq-question i {
+            color: #667eea;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover .faq-question i {
+            transform: scale(1.2);
+        }
+
+        .faq-question[data-bs-toggle="collapse"] {
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .faq-question .bi-chevron-down {
+            transition: var(--transition);
+            color: #667eea;
+        }
+
+        .faq-question[aria-expanded="true"] .bi-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .collapse {
+            transition: all 0.3s ease;
+        }
+
+        .faq-answer {
+            color: #6c757d;
+            line-height: 1.6;
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Loading states */
+        .btn-loading {
+            position: relative;
+            color: transparent;
+        }
+
+        .btn-loading::after {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            top: 50%;
+            left: 50%;
+            margin-left: -8px;
+            margin-top: -8px;
+            border: 2px solid transparent;
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Success/Error states */
+        .form-success {
+            border-color: #28a745 !important;
+            background-color: #d4edda;
+        }
+
+        .form-error {
+            border-color: #dc3545 !important;
+            background-color: #f8d7da;
+        }
+
+        .alert-custom {
+            border-radius: 15px;
+            border: none;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            animation: slideInDown 0.5s ease;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Enhanced responsive design */
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 60px 0;
+                min-height: 300px;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .contact-form {
+                padding: 2rem;
+            }
+            
+            .contact-info-card {
+                padding: 1.5rem;
+                margin-bottom: 1rem;
+                min-height: 180px;
+                max-height: 220px;
+            }
+            
+            .faq-section {
+                padding: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .contact-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .contact-title {
+                font-size: 1.1rem;
+            }
+            
+            .btn-primary {
+                padding: 15px 35px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-header {
+                padding: 40px 0;
+                min-height: 250px;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .contact-info-card {
+                padding: 1.2rem;
+                min-height: 160px;
+                max-height: 200px;
+            }
+            
+            .faq-section {
+                padding: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .contact-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+            
+            .contact-title {
+                font-size: 1rem;
+            }
+            
+            .contact-details {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-check2-square me-2"></i>
+                TaskFlow
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-house me-1"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tasks.html">
+                            <i class="bi bi-list-task me-1"></i>
+                            Tasks
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            <i class="bi bi-info-circle me-1"></i>
+                            About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">
+                            <i class="bi bi-envelope me-1"></i>
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main>
+        <div class="contact-page">
+            <!-- Page Header -->
+            <section class="page-header">
+                <div class="container">
+                    <div class="page-header-content">
+                        <h1 class="page-title fade-in-up">
+                            Get In Touch
+                        </h1>
+                        <p class="page-subtitle fade-in-up">
+                            We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+                        </p>
+                        <div class="mt-4 fade-in-up">
+                            <div class="d-flex justify-content-center gap-3">
+                                <div class="text-center">
+                                    <i class="bi bi-clock-history fs-4 mb-2 d-block"></i>
+                                    <small>Quick Response</small>
+                                </div>
+                                <div class="text-center">
+                                    <i class="bi bi-people fs-4 mb-2 d-block"></i>
+                                    <small>Expert Support</small>
+                                </div>
+                                <div class="text-center">
+                                    <i class="bi bi-shield-check fs-4 mb-2 d-block"></i>
+                                    <small>Secure & Private</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Form Section -->
+            <section class="py-5">
+                <div class="container">
+                    <div class="row g-4">
+                        <!-- Contact Form -->
+                        <div class="col-lg-8">
+                            <div class="contact-form slide-in-left">
+                                <h2 class="mb-4 text-center">
+                                    <i class="bi bi-envelope me-2"></i>
+                                    Send us a Message
+                                </h2>
+                                <p class="text-muted text-center mb-4">
+                                    Fill out the form below and we'll get back to you within 24 hours
+                                </p>
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="firstName" class="form-label">
+                                                <i class="bi bi-person me-1"></i>
+                                                First Name
+                                            </label>
+                                            <input type="text" class="form-control" id="firstName" placeholder="Enter your first name">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="lastName" class="form-label">
+                                                <i class="bi bi-person me-1"></i>
+                                                Last Name
+                                            </label>
+                                            <input type="text" class="form-control" id="lastName" placeholder="Enter your last name">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="email" class="form-label">
+                                                <i class="bi bi-envelope me-1"></i>
+                                                Email Address
+                                            </label>
+                                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="phone" class="form-label">
+                                                <i class="bi bi-phone me-1"></i>
+                                                Phone Number
+                                            </label>
+                                            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="subject" class="form-label">
+                                            <i class="bi bi-tag me-1"></i>
+                                            Subject
+                                        </label>
+                                        <select class="form-select" id="subject">
+                                            <option value="">Select a subject</option>
+                                            <option value="general">General Inquiry</option>
+                                            <option value="support">Technical Support</option>
+                                            <option value="billing">Billing Question</option>
+                                            <option value="feature">Feature Request</option>
+                                            <option value="bug">Bug Report</option>
+                                            <option value="partnership">Partnership</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label for="message" class="form-label">
+                                            <i class="bi bi-chat-dots me-1"></i>
+                                            Message
+                                        </label>
+                                        <textarea class="form-control" id="message" rows="6" placeholder="Tell us how we can help you..."></textarea>
+                                    </div>
+                                    
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary btn-lg">
+                                            <i class="bi bi-send me-2"></i>
+                                            Send Message
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="col-lg-4">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div class="contact-info-card slide-in-right">
+                                        <div class="contact-icon primary">
+                                            <i class="bi bi-geo-alt"></i>
+                                        </div>
+                                        <h3 class="contact-title">Visit Us</h3>
+                                        <div class="contact-details">
+                                            <p>
+                                                123 Innovation Street<br>
+                                                Tech City, TC 12345<br>
+                                                United States
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="contact-info-card slide-in-right">
+                                        <div class="contact-icon success pulse">
+                                            <i class="bi bi-telephone"></i>
+                                        </div>
+                                        <h3 class="contact-title">Call Us</h3>
+                                        <div class="contact-details">
+                                            <p>
+                                                <a href="tel:+1234567890">+1 (234) 567-8900</a><br>
+                                                <small class="text-muted">Mon-Fri 9AM-6PM EST</small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="contact-info-card slide-in-right">
+                                        <div class="contact-icon warning">
+                                            <i class="bi bi-envelope"></i>
+                                        </div>
+                                        <h3 class="contact-title">Email Us</h3>
+                                        <div class="contact-details">
+                                            <p>
+                                                <a href="mailto:hello@taskflow.com">hello@taskflow.com</a><br>
+                                                <a href="mailto:support@taskflow.com">support@taskflow.com</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="contact-info-card slide-in-right">
+                                        <div class="contact-icon secondary">
+                                            <i class="bi bi-chat-dots"></i>
+                                        </div>
+                                        <h3 class="contact-title">Live Chat</h3>
+                                        <div class="contact-details">
+                                            <p>
+                                                Available 24/7<br>
+                                                <a href="#" class="btn btn-sm btn-outline-primary mt-2">Start a conversation</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="py-5 bg-light">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="faq-section fade-in-up">
+                                <h2 class="section-title">Frequently Asked Questions</h2>
+                                <p class="text-muted text-center mb-4">
+                                    Find answers to common questions about TaskFlow
+                                </p>
+                                
+                                <div class="faq-item">
+                                    <h4 class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false">
+                                        <i class="bi bi-question-circle me-2"></i>
+                                        How do I get started with TaskFlow?
+                                        <i class="bi bi-chevron-down ms-auto"></i>
+                                    </h4>
+                                    <div class="collapse" id="faq1">
+                                        <p class="faq-answer">
+                                            Getting started is easy! Simply sign up for a free account, create your first task, 
+                                            and start organizing your workflow. We offer a comprehensive onboarding process 
+                                            to help you get up and running quickly.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="faq-item">
+                                    <h4 class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false">
+                                        <i class="bi bi-question-circle me-2"></i>
+                                        Is TaskFlow free to use?
+                                        <i class="bi bi-chevron-down ms-auto"></i>
+                                    </h4>
+                                    <div class="collapse" id="faq2">
+                                        <p class="faq-answer">
+                                            Yes! TaskFlow offers a free tier with essential features for individual users. 
+                                            We also have premium plans with advanced features for teams and power users.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="faq-item">
+                                    <h4 class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false">
+                                        <i class="bi bi-question-circle me-2"></i>
+                                        Can I use TaskFlow on my mobile device?
+                                        <i class="bi bi-chevron-down ms-auto"></i>
+                                    </h4>
+                                    <div class="collapse" id="faq3">
+                                        <p class="faq-answer">
+                                            Absolutely! TaskFlow is fully responsive and works seamlessly on desktop, 
+                                            tablet, and mobile devices. Access your tasks anywhere, anytime.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="faq-item">
+                                    <h4 class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false">
+                                        <i class="bi bi-question-circle me-2"></i>
+                                        How secure is my data?
+                                        <i class="bi bi-chevron-down ms-auto"></i>
+                                    </h4>
+                                    <div class="collapse" id="faq4">
+                                        <p class="faq-answer">
+                                            Security is our top priority. We use enterprise-grade encryption, 
+                                            regular security audits, and comply with industry standards to protect your data.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="faq-item">
+                                    <h4 class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false">
+                                        <i class="bi bi-question-circle me-2"></i>
+                                        Do you offer team collaboration features?
+                                        <i class="bi bi-chevron-down ms-auto"></i>
+                                    </h4>
+                                    <div class="collapse" id="faq5">
+                                        <p class="faq-answer">
+                                            Yes! Our premium plans include team workspaces, shared task lists, 
+                                            real-time collaboration, and advanced project management features.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="faq-item">
+                                    <h4 class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false">
+                                        <i class="bi bi-question-circle me-2"></i>
+                                        What kind of support do you provide?
+                                        <i class="bi bi-chevron-down ms-auto"></i>
+                                    </h4>
+                                    <div class="collapse" id="faq6">
+                                        <p class="faq-answer">
+                                            We offer 24/7 live chat support, comprehensive documentation, 
+                                            video tutorials, and email support for all users.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Form validation and submission
+            const contactForm = document.querySelector('form');
+            const submitBtn = document.querySelector('.btn-primary');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Show loading state
+                    submitBtn.classList.add('btn-loading');
+                    submitBtn.disabled = true;
+                    
+                    // Simulate form submission
+                    setTimeout(() => {
+                        submitBtn.classList.remove('btn-loading');
+                        submitBtn.disabled = false;
+                        
+                        // Show success message
+                        showAlert('success', 'Message sent successfully! We\'ll get back to you soon.');
+                        
+                        // Reset form
+                        contactForm.reset();
+                    }, 2000);
+                });
+                
+                // Real-time form validation
+                const inputs = contactForm.querySelectorAll('input, select, textarea');
+                inputs.forEach(input => {
+                    input.addEventListener('blur', function() {
+                        validateField(this);
+                    });
+                    
+                    input.addEventListener('input', function() {
+                        if (this.classList.contains('form-error')) {
+                            validateField(this);
+                        }
+                    });
+                });
+            }
+            
+            // FAQ accordion enhancements
+            const faqQuestions = document.querySelectorAll('.faq-question[data-bs-toggle="collapse"]');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const target = document.querySelector(this.getAttribute('data-bs-target'));
+                    const icon = this.querySelector('.bi-chevron-down');
+                    
+                    // Add smooth animation
+                    if (target) {
+                        target.addEventListener('show.bs.collapse', function() {
+                            icon.style.transform = 'rotate(180deg)';
+                        });
+                        
+                        target.addEventListener('hide.bs.collapse', function() {
+                            icon.style.transform = 'rotate(0deg)';
+                        });
+                    }
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe elements for scroll animations
+            document.querySelectorAll('.contact-form, .contact-info-card, .faq-section').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+        
+        // Helper functions
+        function validateField(field) {
+            const value = field.value.trim();
+            const fieldType = field.type;
+            let isValid = true;
+            
+            // Remove existing validation classes
+            field.classList.remove('form-success', 'form-error');
+            
+            // Email validation
+            if (fieldType === 'email') {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                isValid = emailRegex.test(value);
+            }
+            // Phone validation
+            else if (fieldType === 'tel') {
+                const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+                isValid = phoneRegex.test(value.replace(/[\s\-\(\)]/g, ''));
+            }
+            // Required field validation
+            else if (field.hasAttribute('required')) {
+                isValid = value.length > 0;
+            }
+            
+            // Apply validation classes
+            if (isValid && value.length > 0) {
+                field.classList.add('form-success');
+            } else if (!isValid && value.length > 0) {
+                field.classList.add('form-error');
+            }
+            
+            return isValid;
+        }
+        
+        function showAlert(type, message) {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-custom`;
+            alertDiv.innerHTML = `
+                <i class="bi bi-${type === 'success' ? 'check-circle' : 'exclamation-triangle'} me-2"></i>
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            const form = document.querySelector('.contact-form');
+            if (form) {
+                form.insertBefore(alertDiv, form.firstChild);
+                
+                // Auto-remove after 5 seconds
+                setTimeout(() => {
+                    if (alertDiv.parentNode) {
+                        alertDiv.remove();
+                    }
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>

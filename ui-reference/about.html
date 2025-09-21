@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - About Us</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --hover-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            background: var(--primary-gradient) !important;
+            box-shadow: var(--card-shadow);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: white !important;
+        }
+
+        main {
+            flex: 1;
+            width: 100%;
+            padding: 0;
+        }
+
+        .about-page {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page-header {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .about-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            padding: 3rem;
+            margin-bottom: 3rem;
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .about-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
+            color: white;
+            background: var(--primary-gradient);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .team-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-role {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .team-description {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .value-icon.primary {
+            background: var(--primary-gradient);
+        }
+
+        .value-icon.success {
+            background: var(--success-gradient);
+        }
+
+        .value-icon.warning {
+            background: var(--warning-gradient);
+        }
+
+        .value-icon.secondary {
+            background: var(--secondary-gradient);
+        }
+
+        .value-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .value-description {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+
+        .stats-section {
+            background: white;
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #6c757d;
+            font-weight: 600;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .about-card {
+                padding: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .team-avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-check2-square me-2"></i>
+                TaskFlow
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-house me-1"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tasks.html">
+                            <i class="bi bi-list-task me-1"></i>
+                            Tasks
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">
+                            <i class="bi bi-info-circle me-1"></i>
+                            About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="bi bi-envelope me-1"></i>
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main>
+        <div class="about-page">
+            <!-- Page Header -->
+            <section class="page-header">
+                <div class="container">
+                    <div class="page-header-content">
+                        <h1 class="page-title fade-in-up">
+                            About TaskFlow
+                        </h1>
+                        <p class="page-subtitle fade-in-up">
+                            Empowering productivity through innovative task management solutions
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Our Story Section -->
+            <section class="content-section">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="about-card text-center">
+                                <div class="about-icon">
+                                    <i class="bi bi-lightbulb"></i>
+                                </div>
+                                <h2 class="mb-4">Our Story</h2>
+                                <p class="lead mb-4">
+                                    TaskFlow was born from a simple idea: what if task management could be both powerful and delightful?
+                                </p>
+                                <p class="mb-4">
+                                    Founded in 2024 by a team of productivity enthusiasts and software engineers, we set out to create 
+                                    a task management system that doesn't just help you organize your work, but actually makes you 
+                                    excited to tackle your to-do list.
+                                </p>
+                                <p>
+                                    Today, TaskFlow serves thousands of users worldwide, from individual professionals to large teams, 
+                                    helping them achieve their goals with a clean, intuitive, and powerful platform.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-6">
+                            <div class="stat-item">
+                                <div class="stat-number">10K+</div>
+                                <div class="stat-label">Active Users</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="stat-item">
+                                <div class="stat-number">500K+</div>
+                                <div class="stat-label">Tasks Created</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="stat-item">
+                                <div class="stat-number">99.9%</div>
+                                <div class="stat-label">Uptime</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <div class="stat-item">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">Countries</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Our Values Section -->
+            <section class="content-section">
+                <div class="container">
+                    <h2 class="section-title">Our Values</h2>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon primary">
+                                <i class="bi bi-heart"></i>
+                            </div>
+                            <h3 class="value-title">User-Centric</h3>
+                            <p class="value-description">
+                                Every feature we build is designed with our users' needs at the center. 
+                                We listen, learn, and iterate based on real feedback.
+                            </p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon success">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <h3 class="value-title">Reliability</h3>
+                            <p class="value-description">
+                                We believe in building robust, secure systems that you can depend on 
+                                day in and day out for your most important work.
+                            </p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon warning">
+                                <i class="bi bi-lightning"></i>
+                            </div>
+                            <h3 class="value-title">Innovation</h3>
+                            <p class="value-description">
+                                We're constantly pushing the boundaries of what's possible in 
+                                productivity software, always looking for better ways to help you succeed.
+                            </p>
+                        </div>
+
+                        <div class="value-card">
+                            <div class="value-icon secondary">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <h3 class="value-title">Collaboration</h3>
+                            <p class="value-description">
+                                Great things happen when people work together. We build tools that 
+                                foster collaboration and make teamwork seamless.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section class="content-section">
+                <div class="container">
+                    <h2 class="section-title">Meet Our Team</h2>
+                    <div class="row g-4">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="team-card">
+                                <div class="team-avatar">
+                                    <i class="bi bi-person"></i>
+                                </div>
+                                <h3 class="team-name">Sarah Johnson</h3>
+                                <p class="team-role">CEO & Founder</p>
+                                <p class="team-description">
+                                    Visionary leader with 10+ years in productivity software. 
+                                    Passionate about helping people achieve their goals.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="team-card">
+                                <div class="team-avatar">
+                                    <i class="bi bi-person"></i>
+                                </div>
+                                <h3 class="team-name">Michael Chen</h3>
+                                <p class="team-role">Lead Developer</p>
+                                <p class="team-description">
+                                    Full-stack engineer with expertise in modern web technologies. 
+                                    Loves creating beautiful, performant user experiences.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="team-card">
+                                <div class="team-avatar">
+                                    <i class="bi bi-person"></i>
+                                </div>
+                                <h3 class="team-name">Emily Rodriguez</h3>
+                                <p class="team-role">UX Designer</p>
+                                <p class="team-description">
+                                    Creative designer focused on making complex workflows feel 
+                                    simple and intuitive for users of all skill levels.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mission Section -->
+            <section class="content-section">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="about-card text-center">
+                                <div class="about-icon">
+                                    <i class="bi bi-rocket"></i>
+                                </div>
+                                <h2 class="mb-4">Our Mission</h2>
+                                <p class="lead mb-4">
+                                    To empower individuals and teams worldwide to achieve their goals through 
+                                    intuitive, powerful, and delightful task management tools.
+                                </p>
+                                <p>
+                                    We believe that when you have the right tools and systems in place, 
+                                    you can focus on what matters most – creating, building, and achieving 
+                                    the things that drive you forward.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
