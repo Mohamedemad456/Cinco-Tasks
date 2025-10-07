@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workspace - TMS</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Mobile Navigation Toggle -->
+    <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+    </button>
+    
+    <!-- Mobile Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h5 class="sidebar-title">
+                <i class="bi bi-kanban me-2"></i>TMS Dashboard
+            </h5>
+        </div>
+        <div class="sidebar-menu">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="bi bi-house me-2"></i>Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">
+                        <i class="bi bi-speedometer2 me-2"></i>Dashboard
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-kanban me-2"></i>Workspaces
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="workspace.html?workspace=web-dev">
+                            <i class="bi bi-code-square me-2"></i>Web Development
+                        </a></li>
+                        <li><a class="dropdown-item" href="workspace.html?workspace=mobile-app">
+                            <i class="bi bi-phone me-2"></i>Mobile App
+                        </a></li>
+                        <li><a class="dropdown-item" href="workspace.html?workspace=marketing">
+                            <i class="bi bi-bullhorn me-2"></i>Marketing Campaign
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="dashboard.html">
+                            <i class="bi bi-plus-circle me-2"></i>Create New Workspace
+                        </a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profile.html">
+                        <i class="bi bi-person me-2"></i>Profile
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <i class="bi bi-gear me-2"></i>Settings
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="help.html">
+                        <i class="bi bi-question-circle me-2"></i>Help
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">
+                        <i class="bi bi-envelope me-2"></i>Contact
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="bi bi-person-circle"></i>
+                </div>
+                <div class="user-details">
+                    <div class="user-name">John Doe</div>
+                    <div class="user-role">Team Lead</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Workspace Header -->
+        <div class="workspace-header-detail">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb mb-2">
+                                <li class="breadcrumb-item"><a href="dashboard.html" class="text-decoration-none">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Workspace</li>
+                            </ol>
+                        </nav>
+                        <h1 class="display-6 fw-bold mb-2">Web Development Workspace</h1>
+                        <p class="text-muted mb-0">Frontend and backend development tasks</p>
+                    </div>
+                    <div class="col-md-4 text-md-end">
+                        <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#addTaskModal">
+                            <i class="bi bi-plus-circle me-2"></i>Add Task
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workspace Content -->
+        <div class="container-fluid">
+            <!-- Workspace Stats -->
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="bi bi-list-task"></i>
+                        </div>
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Total Tasks</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="bi bi-clock"></i>
+                        </div>
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Pending</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="bi bi-arrow-right-circle"></i>
+                        </div>
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">In Progress</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="bi bi-check-circle"></i>
+                        </div>
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Completed</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kanban Board -->
+            <div class="kanban-board">
+                <!-- Pending Column -->
+                <div class="kanban-column animate-fade-up">
+                    <div class="column-header">
+                        <div class="column-title text-danger">
+                            <i class="bi bi-clock me-2"></i>Pending
+                        </div>
+                        <div class="column-count">3</div>
+                    </div>
+                    <div class="column-content" id="pendingColumn">
+                        <div class="task-card" onclick="openTaskModal('task1')">
+                            <div class="task-title">Setup React Project</div>
+                            <div class="task-description">Initialize new React project with Vite and configure basic setup</div>
+                            <div class="task-meta">
+                                <span class="task-priority priority-high">High</span>
+                                <span><i class="bi bi-calendar me-1"></i>Dec 15</span>
+                            </div>
+                        </div>
+                        <div class="task-card" onclick="openTaskModal('task2')">
+                            <div class="task-title">Design UI Components</div>
+                            <div class="task-description">Create reusable UI components for the application</div>
+                            <div class="task-meta">
+                                <span class="task-priority priority-medium">Medium</span>
+                                <span><i class="bi bi-calendar me-1"></i>Dec 18</span>
+                            </div>
+                        </div>
+                        <div class="task-card" onclick="openTaskModal('task3')">
+                            <div class="task-title">Setup Database</div>
+                            <div class="task-description">Configure MongoDB and create initial schema</div>
+                            <div class="task-meta">
+                                <span class="task-priority priority-low">Low</span>
+                                <span><i class="bi bi-calendar me-1"></i>Dec 20</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- In Progress Column -->
+                <div class="kanban-column animate-fade-up delay-1">
+                    <div class="column-header">
+                        <div class="column-title text-warning">
+                            <i class="bi bi-arrow-right-circle me-2"></i>In Progress
+                        </div>
+                        <div class="column-count">2</div>
+                    </div>
+                    <div class="column-content" id="progressColumn">
+                        <div class="task-card" onclick="openTaskModal('task4')">
+                            <div class="task-title">Implement Authentication</div>
+                            <div class="task-description">Add user login and registration functionality</div>
+                            <div class="task-meta">
+                                <span class="task-priority priority-high">High</span>
+                                <span><i class="bi bi-calendar me-1"></i>Dec 12</span>
+                            </div>
+                        </div>
+                        <div class="task-card" onclick="openTaskModal('task5')">
+                            <div class="task-title">API Development</div>
+                            <div class="task-description">Create REST API endpoints for task management</div>
+                            <div class="task-meta">
+                                <span class="task-priority priority-medium">Medium</span>
+                                <span><i class="bi bi-calendar me-1"></i>Dec 14</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Completed Column -->
+                <div class="kanban-column animate-fade-up delay-2">
+                    <div class="column-header">
+                        <div class="column-title text-success">
+                            <i class="bi bi-check-circle me-2"></i>Completed
+                        </div>
+                        <div class="column-count">3</div>
+                    </div>
+                    <div class="column-content" id="completedColumn">
+                        <div class="task-card" onclick="openTaskModal('task6')">
+                            <div class="task-title">Project Planning</div>
+                            <div class="task-description">Define project requirements and create wireframes</div>
+                            <div class="task-meta">
+                                <span class="task-priority priority-low">Low</span>
+                                <span><i class="bi bi-calendar me-1"></i>Dec 10</span>
+                            </div>
+                        </div>
+                        <div class="task-card" onclick="openTaskModal('task7')">
+                            <div class="task-title">Environment Setup</div>
+                            <div class="task-description">Configure development environment and tools</div>
+                            <div class="task-meta">
+                                <span class="task-priority priority-medium">Medium</span>
+                                <span><i class="bi bi-calendar me-1"></i>Dec 11</span>
+                            </div>
+                        </div>
+                        <div class="task-card" onclick="openTaskModal('task8')">
+                            <div class="task-title">Version Control</div>
+                            <div class="task-description">Initialize Git repository and setup CI/CD pipeline</div>
+                            <div class="task-meta">
+                                <span class="task-priority priority-low">Low</span>
+                                <span><i class="bi bi-calendar me-1"></i>Dec 11</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Add Task Modal -->
+    <div class="modal fade" id="addTaskModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Task</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addTaskForm">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="taskTitle" class="form-label">Task Title</label>
+                                    <input type="text" class="form-control" id="taskTitle" placeholder="Enter task title" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="taskPriority" class="form-label">Priority</label>
+                                    <select class="form-control" id="taskPriority">
+                                        <option value="low">Low</option>
+                                        <option value="medium" selected>Medium</option>
+                                        <option value="high">High</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="taskDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="taskDescription" rows="4" placeholder="Describe the task details"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="taskDueDate" class="form-label">Due Date</label>
+                                    <input type="date" class="form-control" id="taskDueDate">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="taskStatus" class="form-label">Status</label>
+                                    <select class="form-control" id="taskStatus">
+                                        <option value="pending">Pending</option>
+                                        <option value="progress">In Progress</option>
+                                        <option value="completed">Completed</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="taskAssignee" class="form-label">Assignee</label>
+                            <select class="form-control" id="taskAssignee">
+                                <option value="john">John Doe</option>
+                                <option value="jane">Jane Smith</option>
+                                <option value="mike">Mike Johnson</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="createTask()">Create Task</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Task Modal -->
+    <div class="modal fade" id="editTaskModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Task</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editTaskForm">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="editTaskTitle" class="form-label">Task Title</label>
+                                    <input type="text" class="form-control" id="editTaskTitle" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="editTaskPriority" class="form-label">Priority</label>
+                                    <select class="form-control" id="editTaskPriority">
+                                        <option value="low">Low</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="high">High</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="editTaskDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="editTaskDescription" rows="4"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="editTaskDueDate" class="form-label">Due Date</label>
+                                    <input type="date" class="form-control" id="editTaskDueDate">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="editTaskStatus" class="form-label">Status</label>
+                                    <select class="form-control" id="editTaskStatus">
+                                        <option value="pending">Pending</option>
+                                        <option value="progress">In Progress</option>
+                                        <option value="completed">Completed</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="editTaskAssignee" class="form-label">Assignee</label>
+                            <select class="form-control" id="editTaskAssignee">
+                                <option value="john">John Doe</option>
+                                <option value="jane">Jane Smith</option>
+                                <option value="mike">Mike Johnson</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger me-2" onclick="deleteTask()">Delete Task</button>
+                    <button type="button" class="btn btn-primary" onclick="updateTask()">Update Task</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
